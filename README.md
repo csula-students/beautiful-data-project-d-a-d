@@ -5,8 +5,8 @@ Beginning of something beautiful and big (data)...
 
 Members:
 
-David Arias
-Adam Sornoso
-David Nickolo Perez
+#D#avid Arias
+#A#dam Sornoso
+#D#avid Nickolo Perez
 
 #bigData
