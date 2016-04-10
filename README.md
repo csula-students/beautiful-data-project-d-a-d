@@ -1,6 +1,12 @@
 
 Beginning of something beautiful and big (data)...
 
-test push (April 10th)
+#TEAM D.A.D#
+
+Members:
+
+David Arias
+Adam Sornoso
+David Nickolo Perez
 
 #bigData
