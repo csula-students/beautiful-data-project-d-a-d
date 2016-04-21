@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.csula.datascience.examples.HelloTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-04-21T22:37:59" hostname="waaffles" time="0.0">
+  <properties/>
+  <testcase name="getName" classname="edu.csula.datascience.examples.HelloTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

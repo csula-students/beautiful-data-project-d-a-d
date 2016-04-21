@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.csula.datascience.examples.SimpleStatsTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-04-21T22:37:59" hostname="waaffles" time="0.019">
+  <properties/>
+  <testcase name="median" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.0"/>
+  <testcase name="max" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.0"/>
+  <testcase name="min" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.0"/>
+  <testcase name="sum" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.006"/>
+  <testcase name="mean" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.002"/>
+  <testcase name="mode" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.009"/>
+  <testcase name="range" classname="edu.csula.datascience.examples.SimpleStatsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
