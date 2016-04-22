@@ -1,9 +1,12 @@
 package edu.csula.datascience.acquisition;
 
+import com.google.common.collect.Lists;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
 import org.bson.Document;
+
 import twitter4j.Status;
 
 import java.util.Collection;
@@ -29,10 +32,45 @@ public class TwitterCollector implements Collector<Status, Status> {
     }
     @Override
     public Collection<Status> mungee(Collection<Status> src) {
-        return src;
+    	
+    	
+    	List<Status> list = Lists.newArrayList();
+    	
+    	list = (List<Status>) src;
+    	
+    	src = Lists.newArrayList();
+    	
+   
+    	for (int i = 0; i < list.size(); i++)
+    	{
+    		if (list.get(i).getGeoLocation() == null)
+    		{
+    			list.remove(i);
+    			
+    		}
+    	}
+        return list;
+    }
+    
+    public Status mungee(Status src) // get rid of duplicates
+    {
+    	Status toReturn;
+    	
+    	if (src.getGeoLocation() == null)
+    	{
+    		toReturn = null;
+    	}
+    	
+    	else
+    	{
+    		toReturn = src;
+    	}
+    	
+    	return toReturn;
+    	
     }
 
-    //Saves in bath
+    //Saves in path
     @Override
     public void save(Collection<Status> data) {
         List<Document> documents = data.stream()
@@ -40,8 +78,12 @@ public class TwitterCollector implements Collector<Status, Status> {
                 .append("tweetId", item.getId())
                 .append("username", item.getUser().getName())
                 .append("text", item.getText())
-                .append("lang", item.getLang())
-                .append("source", item.getSource()))
+                .append("times_favorited", item.getFavoriteCount())
+                .append("location", item.getGeoLocation())
+                .append("date", item.getCreatedAt().toString())
+                .append("times_retweeted", item.getRetweetCount())
+               .append("source", item.getSource()))
+                
             .collect(Collectors.toList());
 
         collection.insertMany(documents);
@@ -56,6 +98,9 @@ public class TwitterCollector implements Collector<Status, Status> {
                     .append("location", tweet.getGeoLocation())
                     .append("date", tweet.getCreatedAt().toString())
                     .append("times_retweeted", tweet.getRetweetCount())
+                    .append("is_tetweeted", tweet.isRetweeted())
+                    .append("is_sensitive", tweet.isPossiblySensitive())
+                    .append("witheld_in_countries", tweet.getWithheldInCountries())
         );
     }
 }

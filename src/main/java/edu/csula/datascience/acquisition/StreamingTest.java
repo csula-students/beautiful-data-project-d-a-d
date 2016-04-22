@@ -30,8 +30,40 @@ public class StreamingTest {
         StatusListener listener = new StatusListener() {
             @Override
             public void onStatus(Status tweet) {
-//                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
-                    twitterCollector.save(tweet);
+                System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
+                	
+//                	if (twitterCollector.mungee(tweet) == null) // clean tweet
+//                	{
+//                		System.out.println("cleaned tweet");
+//                	}
+                	
+//                	else
+//                	{
+                		twitterCollector.save(tweet); // save a singleton
+//                		System.out.println("saved tweet");
+//                	}
+
+                	
+            	// COLLECTION OF TWEETS
+            	
+//            	int counter = 0;
+//            	
+//            	Collection<Status> tweets = new ArrayList<>();
+//            	
+//            	while (counter < 100) // save 100 tweets a time
+//            	{
+//            		tweets.add(tweet);
+//            		System.out.println("Got a tweet");
+//            		counter++;
+//            	
+//            		
+//            	}
+//            	
+//            	System.out.println("Made it to 100 tweets");
+//            	
+//            	twitterCollector.save(tweets); // put collection of tweets in the DB
+//            	
+//            	tweets.clear(); // clear the collection to avoid duplicates
 
             }
 
