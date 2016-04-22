@@ -10,6 +10,9 @@ import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class StreamingTest {
 
     public static void main(String[] args) throws TwitterException {
@@ -22,12 +25,14 @@ public class StreamingTest {
                 .setOAuthAccessToken("708345771750371330-vPcegWoya034SXdJd4KriBCzw1dEPEt")
                 .setOAuthAccessTokenSecret("wAAOqmB0vXoKepoQ4ZLX4wcaW5Aqdj5JdgLstxNziEPhW");
 
-
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
+        TwitterCollector twitterCollector = new TwitterCollector();
         StatusListener listener = new StatusListener() {
             @Override
-            public void onStatus(Status status) {
-                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+            public void onStatus(Status tweet) {
+//                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+                    twitterCollector.save(tweet);
+
             }
 
             @Override
@@ -70,6 +75,7 @@ public class StreamingTest {
         twitterStream.addListener(listener);
 
         twitterStream.filter(fq);
+
 
 //
 //        twitterStream.addListener(listener);

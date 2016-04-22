@@ -22,7 +22,7 @@ public class TwitterCollector implements Collector<Status, Status> {
         mongoClient = new MongoClient();
 
         // select `bd-example` as testing database
-        database = mongoClient.getDatabase("bd-example");
+        database = mongoClient.getDatabase("twitter_db");
 
         // select collection by name `tweets`
         collection = database.getCollection("tweets");
@@ -32,6 +32,7 @@ public class TwitterCollector implements Collector<Status, Status> {
         return src;
     }
 
+    //Saves in bath
     @Override
     public void save(Collection<Status> data) {
         List<Document> documents = data.stream()
@@ -44,5 +45,17 @@ public class TwitterCollector implements Collector<Status, Status> {
             .collect(Collectors.toList());
 
         collection.insertMany(documents);
+    }
+
+    public void save(Status tweet) {
+        collection.insertOne(new Document()
+            .append("tweetId", tweet.getId())
+                    .append("username", tweet.getUser().getName())
+                    .append("text", tweet.getText())
+                    .append("times_favorited", tweet.getFavoriteCount())
+                    .append("location", tweet.getGeoLocation())
+                    .append("date", tweet.getCreatedAt().toString())
+                    .append("times_retweeted", tweet.getRetweetCount())
+        );
     }
 }
