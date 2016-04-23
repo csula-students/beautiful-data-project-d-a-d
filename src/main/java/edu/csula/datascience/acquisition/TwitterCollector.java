@@ -1,14 +1,15 @@
 package edu.csula.datascience.acquisition;
 
 import com.google.common.collect.Lists;
+import com.mongodb.Block;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import org.bson.Document;
 
 import twitter4j.Status;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +21,8 @@ public class TwitterCollector implements Collector<Status, Status> {
     MongoClient mongoClient;
     MongoDatabase database;
     MongoCollection<Document> collection;
+    boolean  isFound = false;
+    
     public TwitterCollector() {
         // establish database connection to MongoDB
         mongoClient = new MongoClient();
@@ -55,18 +58,22 @@ public class TwitterCollector implements Collector<Status, Status> {
     public Status mungee(Status src) // get rid of duplicates
     {
     	Status toReturn;
+    	FindIterable<Document> iterable = collection.find(new Document("tweetId", src.getId()));
     	
-    	if (src.getGeoLocation() == null)
-    	{
-    		toReturn = null;
+    	iterable.forEach(new Block<Document>() {
+    	    @Override
+    	    public void apply(final Document document) {
+    	        System.out.println("FOUND ALREADY");
+    	        isFound = true;
+    	    }
+    	});
+    	
+    	if(isFound){
+    		isFound = false;
+    		return null;
     	}
     	
-    	else
-    	{
-    		toReturn = src;
-    	}
-    	
-    	return toReturn;
+    	return src;
     	
     }
 

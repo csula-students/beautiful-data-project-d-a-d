@@ -13,35 +13,35 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class StreamingTest {
+public class LiveStreaming {
 
     public static void main(String[] args) throws TwitterException {
 
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("l6ny8YvpqT5HtKFZQZIREqbn9")
-                .setOAuthConsumerSecret("ppNSR0iDGq7EOTTv5xsC0r73nXaKrl5cNNbCHJMKcVeLI5Bjwg")
-                .setOAuthAccessToken("708345771750371330-vPcegWoya034SXdJd4KriBCzw1dEPEt")
-                .setOAuthAccessTokenSecret("wAAOqmB0vXoKepoQ4ZLX4wcaW5Aqdj5JdgLstxNziEPhW");
-
+                .setOAuthConsumerKey("ubWqphRF3oLaw3jBZmE4aqMXi")
+                .setOAuthConsumerSecret("lXwoiXUU4nZY8hqlezbStJiyTDDLFHpP6UTGHhUs1krbChrozL")
+                .setOAuthAccessToken("4817676860-zyrGapKno1jmEeFOnVZjtN3TZJdF1BLxzjMf1wx")
+                .setOAuthAccessTokenSecret("wATsODIb4N4Qt0IgpnCVN5Z0ZdBsPKUbI1ozXusEqbR7s");
+ 
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
         TwitterCollector twitterCollector = new TwitterCollector();
         StatusListener listener = new StatusListener() {
             @Override
             public void onStatus(Status tweet) {
-                System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
                 	
-//                	if (twitterCollector.mungee(tweet) == null) // clean tweet
-//                	{
-//                		System.out.println("cleaned tweet");
-//                	}
+                	if (twitterCollector.mungee(tweet) == null) // clean tweet
+                	{
+                		System.out.println("cleaned tweet");
+                	}
                 	
-//                	else
-//                	{
+                	else
+                	{
+                		
                 		twitterCollector.save(tweet); // save a singleton
-//                		System.out.println("saved tweet");
-//                	}
+                		System.out.println("saved tweet");
+                	}
 
                 	
             	// COLLECTION OF TWEETS
@@ -94,7 +94,7 @@ public class StreamingTest {
         };
 
 
-        String list[] = {"#tech", "#startup"};
+        String list[] = {"#tech", "#startup", "#techs" , "#start-up", "#startups", "#technology" , "#start-ups", "#entrepreneur", "#entrepreneurship", "#innovative", "#innovation", "#newtech" ,"#new-tech"};
 
 
         // filter tweets
