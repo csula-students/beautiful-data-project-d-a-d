@@ -13,19 +13,17 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class LiveStreaming2 {
+public class LiveStreaming3 {
 
     public static void main(String[] args) throws TwitterException {
 
-
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("asKL6BfWWA1FdXuZWI5IuHhaf")
-                .setOAuthConsumerSecret("ZOAnT1KZuIHQlr4ENSeC41JVJQg55YZ3AwpQJiohckcoa2NnG9")
-                .setOAuthAccessToken("2562981560-Yc8qhBw3b1QzhtFN02d0O6xUJ8R4VIEE01iHGXy")
-                .setOAuthAccessTokenSecret("dOTA2Gquh8KlZmvy9fRVRh7umr2vZPzBnFuUl5hd9RpAa");
+                .setOAuthConsumerKey("F1moel90e3NltCHqzJoEmjCJ9")
+                .setOAuthConsumerSecret("WpyBrRgLq5g8lQXfUcnZBS63l5iIpYR1pcRaEXB9puHb1XJ42I")
+                .setOAuthAccessToken("583497751-vtLKWF427lVtLDqVJrJCgz009dh7thiVK8C3CcFq")
+                .setOAuthAccessTokenSecret("SyPHJq9OSrTiltUxV49yYHTbh6lnvRNX8mgFPaQ9kNVVm");
         
- 
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
         TwitterCollector twitterCollector = new TwitterCollector();
         StatusListener listener = new StatusListener() {
@@ -43,10 +41,8 @@ public class LiveStreaming2 {
                 		twitterCollector.save(tweet); // save a singleton
                 		System.out.println("saved tweet");
                 	}
-
                 	
             	// COLLECTION OF TWEETS
-            	
 //            	int counter = 0;
 //            	
 //            	Collection<Status> tweets = new ArrayList<>();
@@ -56,8 +52,6 @@ public class LiveStreaming2 {
 //            		tweets.add(tweet);
 //            		System.out.println("Got a tweet");
 //            		counter++;
-//            	
-//            		
 //            	}
 //            	
 //            	System.out.println("Made it to 100 tweets");

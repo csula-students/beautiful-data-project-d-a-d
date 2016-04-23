@@ -106,8 +106,9 @@ public class LiveStreaming {
 
         twitterStream.addListener(listener);
 
-        twitterStream.filter(fq);
-
+        //twitterStream.filter(fq);
+        
+        twitterStream.sample();
 
 //
 //        twitterStream.addListener(listener);
