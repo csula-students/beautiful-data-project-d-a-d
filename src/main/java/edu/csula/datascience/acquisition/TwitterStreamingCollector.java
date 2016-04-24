@@ -38,18 +38,20 @@ public class TwitterStreamingCollector implements Collector<Status, Status> {
     public Collection<Status> mungee(Collection<Status> src) {
     	
     	List<Status> list = Lists.newArrayList();
+    	List<Status> cleaned = Lists.newArrayList();
     	
     	list = (List<Status>) src;
     	
     	src = Lists.newArrayList();
-    	
+    	cleaned = Lists.newArrayList();
    
     	for (int i = 0; i < list.size(); i++)
     	{
-        	if ((Long) list.get(i).getId() == null || list.get(i).getUser().getName() == null || list.get(i).getText() == null ||
-        			list.get(i).getCreatedAt().toString() == null)
+    		if (   list.get(i).getId() >= 0 && list.get(i).getId() >= 0 
+        			&& list.get(i).getUser().getName() != null && list.get(i).getFavoriteCount() >= 0 && list.get(i).getText() != null
+        			&& list.get(i).getRetweetCount() >= 0 && list.get(i).getCreatedAt() != null )
     		{
-    			list.remove(i); // remove that tweet from the document
+    			cleaned.add(list.get(i)); // remove that tweet from the document
     			
     		}
         	
@@ -74,7 +76,7 @@ public class TwitterStreamingCollector implements Collector<Status, Status> {
 //        		
         	
     	}
-        return list;
+        return cleaned;
         
     }
     
