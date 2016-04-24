@@ -8,28 +8,26 @@ package edu.csula.datascience.acquisition;
 public class MockData2 {
     private final String id;
     private final String tweetId;
+    private final String username;
     private final String text;
     private final int fav;
-    private final String location;
     private final String date;
     private final int retweet;
     private final boolean retweeted;
     private final boolean sensitive;
-    private final String countries;
     
     
 
-    public MockData2(String id, String tid, String username, String text, int fav, String location, String date, int retweet, boolean retweeted, boolean sensitive, String countries) {
+    public MockData2(String id, String tid, String username, String text, int fav, String date, int retweet, boolean retweeted, boolean sensitive) {
         this.id = id;
         this.tweetId = tid;
+        this.username = username;
         this.text = text;
         this.fav = fav;
-        this.location = location;
         this.date = date;
         this.retweet = retweet;
         this.retweeted = retweeted;
         this.sensitive = sensitive;
-        this.countries = countries;
         
         
         
@@ -52,8 +50,8 @@ public class MockData2 {
         return fav;
     }
 
-    public String getLocation() {
-        return location;
+    public String getUsername() {
+        return username;
     }
 
     public String getDate() {
@@ -71,12 +69,6 @@ public class MockData2 {
     public boolean isSensitive() {
         return sensitive;
     }
-
-    public String getCountries() {
-        return countries;
-    }
-
-
 
     
 }
