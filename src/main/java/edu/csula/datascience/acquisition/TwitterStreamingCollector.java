@@ -52,9 +52,28 @@ public class TwitterStreamingCollector implements Collector<Status, Status> {
     			list.remove(i); // remove that tweet from the document
     			
     		}
-     
+        	
         	// checked if the tweet is good enough (has all fields)
-        	    	}
+        	
+        	// (now check for duplication)
+        	
+//        	FindIterable<Document> iterable = collection.find(new Document("tweetId", list.get(i).getId()));
+//        	
+//        	iterable.forEach(new Block<Document>() {
+//        	    @Override
+//        	    public void apply(final Document document) {
+//        	        System.out.println("FOUND ALREADY");
+//        	        isFound = true;
+//        	    }
+//        	});
+//        	
+//        	if(isFound){
+//        		isFound = false;
+//        		list.remove(i);
+//        	}
+//        		
+        	
+    	}
         return list;
         
     }
