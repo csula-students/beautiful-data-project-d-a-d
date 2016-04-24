@@ -16,6 +16,7 @@ public class TwitterStreamingCollectorApp {
 
      	Collection<Status> tweets = source.next();
      	int count = 0;
+     	int time = 0;
      	while (true){
      		if(!tweets.isEmpty()) //if filled, clean and save
      		{
@@ -25,11 +26,12 @@ public class TwitterStreamingCollectorApp {
      		}
      		
             tweets = source.next();
-            System.out.println(cleanedTweets.size()+" added to "+count);
+            System.out.println(cleanedTweets.size()+" added -- Total: "+count +" -- Time: "+time*5+" secs");
      		//Wait 2 seconds so that the collections can fill before we retrieve some tweets
      		try {
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				System.out.println("SLEEPING");
+				time++;
 					
 			} catch (InterruptedException e) {
 				e.printStackTrace();
