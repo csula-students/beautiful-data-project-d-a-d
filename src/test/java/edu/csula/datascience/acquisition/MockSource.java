@@ -21,7 +21,7 @@ public class MockSource implements Source<MockData> {
         return Lists.newArrayList(
             new MockData("1", null),
             new MockData("2", "content2"),
-            new MockData("3", "content3")
+            new MockData("3", "content3")     
         );
     }
 }

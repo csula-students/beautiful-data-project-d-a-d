@@ -17,13 +17,13 @@ import java.util.stream.Collectors;
 /**
  * An example of Collector implementation using Twitter4j with MongoDB Java driver
  */
-public class TwitterCollector implements Collector<Status, Status> {
+public class TwitterStreamingCollector implements Collector<Status, Status> {
     MongoClient mongoClient;
     MongoDatabase database;
     MongoCollection<Document> collection;
     boolean  isFound = false;
     
-    public TwitterCollector() {
+    public TwitterStreamingCollector() {
         // establish database connection to MongoDB
         mongoClient = new MongoClient();
 
@@ -46,38 +46,39 @@ public class TwitterCollector implements Collector<Status, Status> {
    
     	for (int i = 0; i < list.size(); i++)
     	{
-    		if (list.get(i).getGeoLocation() == null)
+        	if ((Long) list.get(i).getId() == null || list.get(i).getUser().getName() == null || list.get(i).getText() == null ||
+        			list.get(i).getCreatedAt().toString() == null)
     		{
-    			list.remove(i);
+    			list.remove(i); // remove that tweet from the document
     			
     		}
+        	
+        	// checked if the tweet is good enough (has all fields)
+        	
+        	// (now check for duplication)
+        	
+//        	FindIterable<Document> iterable = collection.find(new Document("tweetId", list.get(i).getId()));
+//        	
+//        	iterable.forEach(new Block<Document>() {
+//        	    @Override
+//        	    public void apply(final Document document) {
+//        	        System.out.println("FOUND ALREADY");
+//        	        isFound = true;
+//        	    }
+//        	});
+//        	
+//        	if(isFound){
+//        		isFound = false;
+//        		list.remove(i);
+//        	}
+//        		
+        	
     	}
         return list;
+        
     }
     
-    public Status mungee(Status src) // get rid of duplicates
-    {
-    	Status toReturn;
-    	FindIterable<Document> iterable = collection.find(new Document("tweetId", src.getId()));
-    	
-    	iterable.forEach(new Block<Document>() {
-    	    @Override
-    	    public void apply(final Document document) {
-    	        System.out.println("FOUND ALREADY");
-    	        isFound = true;
-    	    }
-    	});
-    	
-    	if(isFound){
-    		isFound = false;
-    		return null;
-    	}
-    	
-    	return src;
-    	
-    }
-
-    //Saves in path
+  //Saves in path
     @Override
     public void save(Collection<Status> data) {
         List<Document> documents = data.stream()
