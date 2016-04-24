@@ -5,7 +5,7 @@ package edu.csula.datascience.acquisition;
 /**
  * Mock raw data
  */
-public class MockData2 {
+public class SimpleModel2 {
     private final String id;
     private final String tweetId;
     private final String username;
@@ -18,7 +18,7 @@ public class MockData2 {
     
     
 
-    public MockData2(String id, String tid, String username, String text, int fav, String date, int retweet, boolean retweeted, boolean sensitive) {
+    public SimpleModel2(String id, String tid, String username, String text, int fav, String date, int retweet, boolean retweeted, boolean sensitive) {
         this.id = id;
         this.tweetId = tid;
         this.username = username;
@@ -66,8 +66,8 @@ public class MockData2 {
         return sensitive;
     }
 
-    public static MockData2 build(MockData2 data) {
-        return new MockData2(data.getId(), data.getTweetId(), data.getUsername(), data.getText(), data.getFav(), data.getDate(), data.getRetweet(), data.isRetweeted(), data.isSensitive());
+    public static SimpleModel2 build(SimpleModel2 data) {
+        return new SimpleModel2(data.getId(), data.getTweetId(), data.getUsername(), data.getText(), data.getFav(), data.getDate(), data.getRetweet(), data.isRetweeted(), data.isSensitive());
       
 
     }

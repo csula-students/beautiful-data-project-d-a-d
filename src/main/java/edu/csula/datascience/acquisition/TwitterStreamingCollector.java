@@ -33,9 +33,9 @@ public class TwitterStreamingCollector implements Collector<Status, Status> {
         // select collection by name `tweets`
         collection = database.getCollection("tweets");
     }
+    
     @Override
     public Collection<Status> mungee(Collection<Status> src) {
-    	
     	
     	List<Status> list = Lists.newArrayList();
     	

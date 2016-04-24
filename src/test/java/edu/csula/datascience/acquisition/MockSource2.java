@@ -23,12 +23,12 @@ public class MockSource2 implements Source<MockData2> {
         		new MockData2("1", "1111", null, "this is a tweet", 0,  "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
         		new MockData2("2", "2222", "davidp", null, 0,  "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
         		new MockData2("3", "3333", "adams", "this is a tweet again", -1,  "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
-        		new MockData2("4", "4444", "davida", "this is a tweet", 0, "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
+        		new MockData2("4", "4444", "davida", "this is a tweet4", 0, "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
         		new MockData2("5", "5555", "davida", "this is a tweet", 0, null, 0, false, false),
        			new MockData2("6", "6666", "davidp", "this is a tweet", 0,  "Fri Apr 22 17:08:45 PDT 2016", -1, false, false),
-				new MockData2("7", "7777", "adams", "this is a tweet", 0,  "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
-				new MockData2("8", "4444", "davida", "this is a tweet", 0,"Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
-				new MockData2("9", "9999", "adams", "this is a tweet", 0, "Fri Apr 22 17:08:45 PDT 2016", 0, false, false)
+				new MockData2("7", "7777", "adams", "this is a tweet7", 0,  "Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
+				new MockData2("8", "4444", "davida", "this is a tweet8", 0,"Fri Apr 22 17:08:45 PDT 2016", 0, false, false),
+				new MockData2("9", "9999", "adams", "this is a tweet9", 0, "Fri Apr 22 17:08:45 PDT 2016", 0, false, false)
         		 
         );
     }
