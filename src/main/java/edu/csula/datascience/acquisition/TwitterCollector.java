@@ -17,13 +17,13 @@ import java.util.stream.Collectors;
 /**
  * An example of Collector implementation using Twitter4j with MongoDB Java driver
  */
-public class TwitterStreamingCollector implements Collector<Status, Status> {
+public class TwitterCollector implements Collector<Status, Status> {
     MongoClient mongoClient;
     MongoDatabase database;
     MongoCollection<Document> collection;
     boolean  isFound = false;
     
-    public TwitterStreamingCollector() {
+    public TwitterCollector() {
         // establish database connection to MongoDB
         mongoClient = new MongoClient();
 
@@ -46,20 +46,38 @@ public class TwitterStreamingCollector implements Collector<Status, Status> {
    
     	for (int i = 0; i < list.size(); i++)
     	{
-        	if ((Long) list.get(i).getId() == null || list.get(i).getUser().getName() == null || list.get(i).getText() == null ||
-        			list.get(i).getCreatedAt().toString() == null)
+    		if (list.get(i).getGeoLocation() == null)
     		{
-    			list.remove(i); // remove that tweet from the document
+    			list.remove(i);
     			
     		}
-     
-        	// checked if the tweet is good enough (has all fields)
-        	    	}
+    	}
         return list;
-        
     }
     
-  //Saves in path
+    public Status mungee(Status src) // get rid of duplicates
+    {
+    	Status toReturn;
+    	FindIterable<Document> iterable = collection.find(new Document("tweetId", src.getId()));
+    	
+    	iterable.forEach(new Block<Document>() {
+    	    @Override
+    	    public void apply(final Document document) {
+    	        System.out.println("FOUND ALREADY");
+    	        isFound = true;
+    	    }
+    	});
+    	
+    	if(isFound){
+    		isFound = false;
+    		return null;
+    	}
+    	
+    	return src;
+    	
+    }
+
+    //Saves in path
     @Override
     public void save(Collection<Status> data) {
         List<Document> documents = data.stream()

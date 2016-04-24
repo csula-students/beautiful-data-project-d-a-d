@@ -11,7 +11,7 @@ import java.util.Collection;
 public class TwitterStreamingCollectorApp {
     public static void main(String[] args) {
         TwitterStreamingSource source = new TwitterStreamingSource();
-        TwitterCollector collector = new TwitterCollector();
+        TwitterStreamingCollector collector = new TwitterStreamingCollector();
         Collection<Status> cleanedTweets = new ArrayList<Status>();
 
      	Collection<Status> tweets = source.next();
@@ -24,11 +24,12 @@ public class TwitterStreamingCollectorApp {
      			count += cleanedTweets.size();
      		}
      		
-                 tweets = source.next();
-                 System.out.println(cleanedTweets.size()+" added to "+count);
+            tweets = source.next();
+            System.out.println(cleanedTweets.size()+" added to "+count);
      		//Wait 2 seconds so that the collections can fill before we retrieve some tweets
      		try {
 				Thread.sleep(2000);
+				System.out.println("SLEEPING");
 					
 			} catch (InterruptedException e) {
 				e.printStackTrace();

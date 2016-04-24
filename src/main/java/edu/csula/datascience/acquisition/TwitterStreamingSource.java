@@ -15,7 +15,7 @@ import java.util.List;
 public class TwitterStreamingSource implements Source<Status>, StatusListener {
     public List<Status> list = Lists.newArrayList();
     public TwitterStream twitterStream;
-    public TwitterCollector twitterCollector;
+    public TwitterStreamingCollector twitterCollector;
     
 
     public TwitterStreamingSource() {
@@ -27,7 +27,7 @@ public class TwitterStreamingSource implements Source<Status>, StatusListener {
             .setOAuthAccessTokenSecret("wATsODIb4N4Qt0IgpnCVN5Z0ZdBsPKUbI1ozXusEqbR7s");
     
         twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
-        twitterCollector = new TwitterCollector();
+        twitterCollector = new TwitterStreamingCollector();
         
         twitterStream.addListener(this);
         twitterStream.sample();
@@ -92,6 +92,7 @@ public class TwitterStreamingSource implements Source<Status>, StatusListener {
         ex.printStackTrace();
         try {
 			Thread.sleep(2000);
+			System.out.println("EXCEPTION: WAITING 2 SECONDS FOR RESTART");
 				
 		} catch (InterruptedException e) {
 			e.printStackTrace();
