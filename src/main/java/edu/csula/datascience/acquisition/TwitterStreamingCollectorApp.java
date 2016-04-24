@@ -30,7 +30,7 @@ public class TwitterStreamingCollectorApp {
      		//Wait 2 seconds so that the collections can fill before we retrieve some tweets
      		try {
 				Thread.sleep(5000);
-				System.out.println("SLEEPING");
+				//System.out.println("SLEEPING");
 				time++;
 					
 			} catch (InterruptedException e) {
