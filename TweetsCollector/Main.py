@@ -11,6 +11,7 @@ def main():
     searchTerms = '#startup OR "#startups OR #startuplife OR startup OR startups'
     tweetLimit = 100000000000000000
 
+    print "Starting..."
     # Following code is to get tweets for the month of January
     # Change the range according to the month you're looking for
     # Ex. If doing Feb (28 days) it would be 1, 28
@@ -35,6 +36,8 @@ def main():
         elapsed = end - start;
 
         print "Inserted day", date1, "through", date2 + ".", "Time Elapsed: ]", elapsed
+
+    print "Done!!!"
 
 if __name__ == '__main__':
     main()
