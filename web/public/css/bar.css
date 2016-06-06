@@ -1,0 +1,37 @@
+
+.bar-chart {
+  font-size: 12px;
+}
+
+ text{
+	fill: #fafafa;
+}
+
+.y.axisRight text {
+    fill: orange;
+}
+.y.axisLeft text {
+    fill: steelblue;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.bar1 {
+  fill: steelblue;
+}
+.bar2 {
+  fill: orange;
+}
+.x.axis path {
+  display: none;
+}
+
+@media (min-width: 1px) and (max-width: 800px) {
+	.bar-chart {
+  		font-size: 7px;
+	}
+
+}

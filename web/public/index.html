@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>CSULA Big Data D-A-D Project</title>
+		
+
+
+
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/nav.css" />
+
+
+<link rel="stylesheet" type="text/css" href="css/pie.css" />
+ <link rel="stylesheet" type="text/css" href="css/bar.css" />
+<link rel="stylesheet" type="text/css" href="css/line.css" />
+  <script src="js/jquery-2.1.4.min.js"></script>
+
+ <script src="js/d3.v3.min.js" charset="utf-8"></script>
+ <script src="js/d3.tip.v0.6.3.js" charset="utf-8"></script>
+
+
+	</head>
+	<body id='body' style='background-color: transparent;' >
+
+		<header class='center'>
+				<ul class=' collapse'>
+					<li class='left no-hover' >
+						CSULA Big Data D-A-D
+					</li>
+					
+					<a href='ai.html'>
+						<li class='right'>
+							Artificial Intelligence
+						</li> 
+					</a>
+          <a href='ecommerce.html'>
+            <li class='right'>
+              Ecommerce
+            </li> 
+          </a>
+					<a href='vr.html'>
+						<li class='right'>
+							Virtual Reality 
+						</li>
+					</a>
+					<a href='clean.html'> 
+						<li class='right'>
+							Clean Energy 
+						</li>
+					</a>
+          <a href='iot.html'>
+            <li class='right'>
+              Internet Of Things
+            </li> 
+          </a>
+					<a >
+						<li  class='right active-nav'>
+							Overview 
+						</li>
+					</a>
+				</ul>
+
+    <div class="nav-wrapper mobile">
+      
+      <a href="#" data-activates="mobile-demo" class="button-collapse white-text left"><i class="material-icons">menu</i></a>
+      <a href="#!" class="brand-logo">CSULA Big Data D-A-D</a>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="ai.html">Artifical Intelligence</a></li>
+        <li><a href="ecommerce.html">Ecommerce</a></li>
+        <li><a href="vr.html">Virtual Reality</a></li>
+        <li><a href="clean.html">Clean Energy</a></li>
+        <li><a href="iot.html">Internet Of Things</a></li>
+      </ul>
+    </div>
+
+		</header>
+
+
+
+
+<div class='row pad-bottom'>
+  <div class='col s12 m12 l12 center'>
+    <h1 class="header center white-text text-lighten-2 top">Big Data</h1>
+    <h5 class="header col s12 m12 l12 light">Analyzing tweets to Predict the Future of Tech</h5>
+  </div>
+</div>
+ 
+<div class='row white-bg'>
+
+        <div class="col s12 m12 l4">
+          <div class="icon-block">
+            <h2 class="center white-text plat"><i class="material-icons">equalizer</i></h2>
+            <h5 class="center">Mongo | ElasticSearch | Kibana</h5>
+
+            <p class="light">We utilized a NoSQL type database called MongoDB to give us flexability during development in how we store data as well as the ability to easily add new types of data to our database. Mongo's used to store tons and tons of data permanently. By utilizing ElasticSearch we were able to quickly analyze and search our dataset. Using Kibana as a plugin to elasticSearch only made it easier for the team to work on EDA(Exploratory Data Analysis) to find patterns in our data by visualizing the data in </p>
+          </div>
+        </div>
+
+       
+        <div class="col s12 m12 l4">
+          <div class="icon-block">
+            <h2 class="center white-text plat"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Python | Sklearn | NLTK</h5>
+
+            <p class="light">We found patterns in our raw data quickly thorugh ElasticSearch with Kibana, but to get more accurate results we used python to mine our data. We used NLTK, a python library for natural language machine learning. With NLTK we were able to classify tweets more accurately into what field twitter users were tweeting about and not just by word occurances. We also used Sklearn, a python library for machine learning of all types, to predict the future fields that startups would engage in.</p>
+          </div>
+        </div>
+
+       <div class="col s12 m12 l4">
+          <div class="icon-block">
+            <h2 class="center white-text plat"><i class="material-icons">trending_up</i></h2>
+            <h5 class="center">HTML | JS | D3 </h5>
+
+            <p class="light">
+              The platform with the highest usage is the platform of choice for how we display our findings. Using web technologies such as HTML, CSS, and Javascript, we are able to convey the results of our project to a wider audience that is available through the internet and in a much prettier way than a typical report. Using D3.js we are able to create completely customizable graphs that are easily readable and scalable in a graphic sense so no browser will pixelate our findings.
+
+            </p>
+             
+          </div>
+        </div>
+</div>
+
+
+
+
+<div class='row pad-bottom'>
+  <div class='col s12 m12 l12 center'>
+      <h2 class="center white-text ">The Data</h2>
+     <!--  <div><img src="imgs/field.png" alt="Unsplashed background img 2" class='pic'></div> -->
+      <div class='pic center' id='pieChart'></div>
+  </div>
+</div>
+
+
+
+<div class='row pad-bottom white-bg'>
+  <div class='col s12 m12 l12 center'>
+      <h4 class='left-align'>The Data:</h4>
+          <p class="left-align light">
+            Through our analysis, we came up with this chart that best defines our findings of current trends of startup fields. AI and VR are a major factor in this chart with a lot of hype and little public consumption, which can prove to be quite volitile in terms of gaining or losing popularity as there isn't a market yet for Virtual Reality. AI has a large stake in this graph as well, partly due to the fact that our data was gathered during a major world summit for AI and machine learning which is bound to make a splash on social networks such as twitter. Surprisingly, Ecommerce has a major section in startups. This is surprising as there is no hype for ecommerce, but it does make sense as it is much more lucrative as you are dealing directly with money.
+          </p>
+  </div>
+</div>
+
+
+
+
+<div class='row pad-bottom'>
+  <div class='col s12 m12 l12 center'>
+      <h2 class="center white-text ">The Present</h2>
+     <!--  <div><img src="imgs/IoT.png" alt="Unsplashed background img 2" class='pic'></div> -->
+     <div class='pic' id='barChart'></div>
+      
+  </div>
+</div>
+
+
+
+<div class='row pad-bottom white-bg'>
+  <div class='col s12 m12 l12 center'>
+      <h4 class='left-align'>The Present:</h4>
+        <p class="left-align light">Here we are comparing two time intervals. The blue bars represent the first half or older half of our data, while the orange bars represent the newest half of our data. This chart gives us a quick understanding of how each field is trending, whether it is becoming more or less popular. We can see that every field has become less popular, but that could be caused by less events or conferences for each field which will create less impact in tweets and news within each field in the later half of our data.
+        </p>
+  </div>
+</div>
+
+
+
+
+
+<div class='row pad-bottom'>
+  <div class='col s12 m12 l12 center'>
+      <h2 class="center white-text ">The Future</h2>
+      <div><img src="imgs/language.png" alt="Unsplashed background img 2" class='pic'></div> 
+    <!--  <div class='pic' id='lineGraph'></div> -->
+
+</div>
+</div>
+
+
+
+<div class='row pad-bottom white-bg'>
+  <div class='col s12 m12 l12 center'>
+      <h4 class='left-align'>The Future:</h4>
+        <p class="left-align light">We predict that VR will become the next big industry that will have the biggest percentage of startups joining. The above graphs shows languages used in startups by analyzing the startup relevant tweets we collected.
+        </p>
+  </div>
+</div>
+
+
+
+<footer class=" page-footer white-bg pop">
+    <div class="container  ">
+      <div class="row  ">
+       
+        <div class="col l6 s12 ">
+          <h5 class="white-text ">The Team</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/waaffles">David Arias</a></li>
+            <li><a class="white-text" href="https://github.com/dumbfoundavid">David Perez</a></li>
+            <li><a class="white-text" href="https://github.com/asornoso">Adam Sornoso</a></li>
+          </ul>
+        </div>
+        <div class="col l6 s12 ">
+          <h5 class="white-text ">Libraries and Tools</h5>
+          <ul>
+            <li><a class="white-text pop" href="https://d3js.org/">D3.js</a></li>
+            <li><a class="white-text pop" href="http://materializecss.com/">Materializecss</a></li>
+            <li><a class="white-text pop" href="https://www.mongodb.com/">MongoDB</a></li>
+            <li><a class="white-text pop" href="http://scikit-learn.org/stable/">SKLearn</a></li>
+            <li><a class="white-text pop" href="http://www.nltk.org/">NTLK</a></li>
+            <li><a class="white-text pop" href="https://www.elastic.co/">ElasticSearch</a></li>
+            <li><a class="white-text pop" href="https://www.elastic.co/downloads/kibana">Kibana</a></li>
+            <li><a class="white-text pop" href="https://rachsmith.com/">Rachel Smith- SVG Background</a></li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3 pop" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+		<canvas id="canvas"></canvas>
+
+
+
+		<script src="js/TweenLite.min.js"></script>
+		<script src="js/EasePack.min.js"></script>
+		<script src="js/rAF.js"></script>
+		<script src="js/demo-1.js"></script>
+		
+
+<!-- D3 SCRIPTS -->
+<script src="js/piechart.js"></script>
+<script src="js/multibar.js"></script>
+<script src="js/multiline.js"></script>
+
+
+
+
+  <!--  Scripts-->
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+
+  window.onload = function(){
+    console.log('loaded');
+    createPie();
+
+  }
+    
+
+	</script>
+
+
+	</body>
+</html>

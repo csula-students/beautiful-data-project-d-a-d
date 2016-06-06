@@ -1,0 +1,116 @@
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html, body{
+	/*background-color: #212121;*/ /*charc*/
+	/*background-color:#323232;*/ /*light charc*/
+	/*background-color: rgb(107, 214, 241);*/ /*blue*/
+	/*background-color: rgb(242, 75, 75);*/  /*Red*/
+	/*background-color: #191919; */ /*dark charc*/
+	/*background-color: #121212; */ /*dark charc*/
+	background-color: rgb(22, 23, 26);  /*off dark blue*/
+	margin:0px;
+	width:100vw;
+	height:100vh;
+	color:#fafafa;
+	font-family: 'Raleway', Calibri, Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+canvas{
+	position: fixed;
+	top:0px;
+	left:0px;
+
+}
+
+.top{
+	padding-top: 55px;
+}
+
+.container{
+	padding: 10px 100px 10px 100px;
+	color:#fafafa;
+}
+
+
+
+@media only screen and (max-width : 500px) {
+    .container {
+        padding: 10px 20px 10px 20px;
+	}
+}
+
+.charc{
+	background-color:#191919;
+}
+
+a{
+	text-decoration: none;
+	color:white;
+}
+
+li{
+	color:#fafafa;
+}
+
+.white-bg{
+	background-color: rgba(255, 255, 255, 0.4);
+	padding-bottom: 15px;
+	padding-left: 50px;
+	padding-right: 50px; 
+}
+
+.plat{
+	color: #e5e4e2;
+}
+
+.pic{
+	width:75vw;
+	margin: 0 auto;
+}
+
+footer.page-footer{
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+.transparent-bg{
+	background-color: transparent;
+}
+
+/*-----*/
+
+.pad-bottom{
+	padding-bottom: 50px;
+}
+
+.mobile{
+		 display: none !important;
+}
+
+
+@media (min-width: 1px) and (max-width: 1000px) {
+   .collapse {
+       display: none !important;
+   }
+
+   .mobile{
+   		display: block !important;
+   }
+
+
+	.pic{
+		width:95vw;
+	}
+
+
+	.white-bg{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}

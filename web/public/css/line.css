@@ -1,0 +1,52 @@
+
+.axis { 
+  font-size: 1em;
+}
+
+ .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+
+.chart{
+
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.line{
+  stroke-width:1px;
+}
+
+
+/*----------TOOL TIP-----------*/
+
+
+.d3-tip {
+
+  position: absolute; 
+  top:0px;
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+
+
+}
